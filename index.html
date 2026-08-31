@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Dashboards - AUNA Enfermería</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Hidden checkboxes para control de popups -->
+<input type="checkbox" id="popup-dh">
+<input type="checkbox" id="popup-oca">
+<input type="checkbox" id="popup-dhe">
+<input type="checkbox" id="popup-talento">
+<input type="checkbox" id="popup-educacion">
+<input type="checkbox" id="popup-calidad">
+<input type="checkbox" id="popup-gestion">
+<input type="checkbox" id="popup-semanal">
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <div class="header-title">Gestión de Enfermería</div>
+    <div class="header-subtitle">Dirección de Enfermería</div>
+  </div>
+  <img src="images/auna-logo-recortado.png" alt="AUNA" class="logo">
+</header>
+
+<!-- MAIN -->
+<div class="main">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-label">Secciones</div>
+    <label for="popup-talento" class="sidebar-btn">🧩  Cultura y Talento</label>
+    <label for="popup-educacion" class="sidebar-btn">🎓  Educación</label>
+    <label for="popup-calidad" class="sidebar-btn">⚠️  Calidad</label>
+    <label for="popup-gestion" class="sidebar-btn">⚕️  Gestión Cuidado Enfermería</label>
+    <label for="popup-semanal" class="sidebar-btn">📋  Tablero Semanal</label>
+  </aside>
+
+  <!-- Mapa -->
+  <div class="content">
+    <div class="map-container">
+      <img src="images/AreaMetropolitanaAuna.png" alt="Área Metropolitana" class="map-img">
+
+      <!-- Pin DH -->
+      <label for="popup-dh" class="pin pin-dh">
+        <div class="pin-marker"><span class="pin-text">DH</span></div>
+      </label>
+
+      <!-- Pin OCA -->
+      <label for="popup-oca" class="pin pin-oca">
+        <div class="pin-marker"><span class="pin-text">OCA</span></div>
+      </label>
+
+      <!-- Pin DHE -->
+      <label for="popup-dhe" class="pin pin-dhe">
+        <div class="pin-marker"><span class="pin-text">DHE</span></div>
+      </label>
+    </div>
+  </div>
+</div>
+
+<!-- POPUPS -->
+
+<!-- DH -->
+<div class="popup-overlay popup-dh-overlay">
+  <div class="popup">
+    <div class="popup-header">
+      <div class="popup-title">📍 Sede DH — Dashboards</div>
+      <label for="popup-dh" class="popup-close"><span>✕</span></label>
+    </div>
+    <div class="dash-list">
+      <a class="dash-btn" href="https://datastudio.google.com/embed/reporting/d7b8a680-0e34-4764-b96b-f2533d0cf35c/page/p_r1zr32rv6d" target="_blank"><span class="dash-btn-icon">📊</span>Indicadores de Satisfacción</a>
+    </div>
+  </div>
+</div>
+
+<!-- OCA -->
+<div class="popup-overlay popup-oca-overlay">
+  <div class="popup">
+    <div class="popup-header">
+      <div class="popup-title">📍 Sede OCA — Dashboards</div>
+      <label for="popup-oca" class="popup-close"><span>✕</span></label>
+    </div>
+    <div class="dash-list">
+      <a class="dash-btn" href="https://datastudio.google.com/embed/reporting/d7b8a680-0e34-4764-b96b-f2533d0cf35c/page/p_2z6u58rv6d" target="_blank"><span class="dash-btn-icon">📊</span>Indicadores de Satisfacción</a>
+    </div>
+  </div>
+</div>
+
+<!-- DHE -->
+<div class="popup-overlay popup-dhe-overlay">
+  <div class="popup">
+    <div class="popup-header">
+      <div class="popup-title">📍 Sede DHE — Dashboards</div>
+      <label for="popup-dhe" class="popup-close"><span>✕</span></label>
+    </div>
+    <div class="dash-list">
+      <a class="dash-btn" href="https://datastudio.google.com/embed/reporting/d7b8a680-0e34-4764-b96b-f2533d0cf35c/page/p_q8dab9rv6d" target="_blank"><span class="dash-btn-icon">📊</span>Indicadores de Satisfacción</a>
+    </div>
+  </div>
+</div>
+
+<!-- Cultura y Talento -->
+<div class="popup-overlay popup-talento-overlay">
+  <div class="popup">
+    <div class="popup-header">
+      <div class="popup-title">🧩 Cultura y Talento — Dashboards</div>
+      <label for="popup-talento" class="popup-close"><span>✕</span></label>
+    </div>
+    <div class="dash-list">
+      <a class="dash-btn" href="#" target="_blank"><span class="dash-btn-icon">📈</span>Próximamente...</a>
+    </div>
+  </div>
+</div>
+
+<!-- Educación -->
+<div class="popup-overlay popup-educacion-overlay">
+  <div class="popup">
+    <div class="popup-header">
+      <div class="popup-title">🎓 Educación — Dashboards</div>
+      <label for="popup-educacion" class="popup-close"><span>✕</span></label>
+    </div>
+    <div class="dash-list">
+      <a class="dash-btn" href="#" target="_blank"><span class="dash-btn-icon">📚</span>Próximamente...</a>
+    </div>
+  </div>
+</div>
+
+<!-- Calidad -->
+<div class="popup-overlay popup-calidad-overlay">
+  <div class="popup">
+    <div class="popup-header">
+      <div class="popup-title">⚠️ Calidad — Dashboards</div>
+      <label for="popup-calidad" class="popup-close"><span>✕</span></label>
+    </div>
+    <div class="dash-list">
+      <a class="dash-btn" href="#" target="_blank"><span class="dash-btn-icon">📋</span>Próximamente...</a>
+    </div>
+  </div>
+</div>
+
+<!-- Gestión Cuidado Enfermería -->
+<div class="popup-overlay popup-gestion-overlay">
+  <div class="popup">
+    <div class="popup-header">
+      <div class="popup-title">⚕️ Gestión Cuidado Enfermería — Dashboards</div>
+      <label for="popup-gestion" class="popup-close"><span>✕</span></label>
+    </div>
+    <div class="dash-list">
+      <a class="dash-btn" href="#" target="_blank"><span class="dash-btn-icon">💊</span>Próximamente...</a>
+    </div>
+  </div>
+</div>
+
+<!-- Tablero Semanal -->
+<div class="popup-overlay popup-semanal-overlay">
+  <div class="popup">
+    <div class="popup-header">
+      <div class="popup-title">📋 Tablero Semanal — Dashboards</div>
+      <label for="popup-semanal" class="popup-close"><span>✕</span></label>
+    </div>
+    <div class="dash-list">
+      <a class="dash-btn" href="https://datastudio.google.com/embed/reporting/d7b8a680-0e34-4764-b96b-f2533d0cf35c/page/page_12345" target="_blank"><span class="dash-btn-icon">📊</span>Indicadores de Satisfacción — General</a>
+      <a class="dash-btn" href="https://datastudio.google.com/embed/reporting/da8685d9-4dc8-485a-96df-638a52f851ff" target="_blank"><span class="dash-btn-icon">🔄</span>Rotación Enfermería</a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer-bar">
+  <span class="footer-text">Dirección de Enfermería - DH - OCA - DHE</span>
+</div>
+
+</body>
+</html>
+
