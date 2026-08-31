@@ -1,0 +1,346 @@
+
+/* =============================================
+   PORTAL DASHBOARDS - AUNA ENFERMERÍA
+   Dirección de Enfermería · Área Metropolitana
+   ============================================= */
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  background: #FFFFFF;
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* =============================================
+   HEADER
+   ============================================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 28px;
+  background: #002060;
+  border-bottom: 4px solid #3D3935;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-title {
+  color: #FFFFFF;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.header-subtitle {
+  color: #BED600;
+  font-size: 11px;
+  margin-top: 3px;
+  letter-spacing: 0.3px;
+}
+
+.logo {
+  height: 36px;
+}
+
+/* =============================================
+   LAYOUT PRINCIPAL
+   ============================================= */
+.main {
+  display: flex;
+  min-height: calc(100vh - 62px);
+}
+
+/* =============================================
+   SIDEBAR
+   ============================================= */
+.sidebar {
+  width: 240px;
+  background: #00B0CA;
+  padding: 24px 14px;
+  border-right: 4px solid #3D3935;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-label {
+  color: #000000;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  margin-bottom: 10px;
+  padding-left: 6px;
+  font-weight: 600;
+}
+
+/* Ocultar checkboxes */
+input[type="checkbox"] {
+  display: none;
+}
+
+/* Botones Area lateral Izquierda */
+.sidebar-btn {
+  display: block;
+  padding: 13px 14px;
+  background: #002060;
+  border: 1px solid #002060;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1.3;
+}
+
+.sidebar-btn:hover {
+  background: #001845;
+  border-color: #001845;
+  transform: translateX(4px);
+  color: #FFFFFF;
+}
+
+/* =============================================
+   ÁREA DEL MAPA
+   ============================================= */
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  position: relative;
+  background: #F5F6FA;
+}
+
+.map-container {
+  position: relative;
+  width: 480px;
+  height: 340px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.map-img {
+  width: 140%;
+  height: 140%;
+  object-fit: contain;
+  border-radius: 12px;
+  filter: drop-shadow(0 4px 20px rgba(0, 176, 202, 0.15));
+}
+
+/* =============================================
+   PINES / MARCADORES
+   ============================================= */
+.pin {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.pin:hover {
+  transform: scale(1.2) translateY(-4px);
+}
+
+.pin-marker {
+  width: 36px;
+  height: 44px;
+  position: relative;
+}
+
+.pin-marker::before {
+  content: '';
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #00B0CA, #008da3);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  top: 0;
+  left: 0;
+  box-shadow: 0 4px 12px rgba(0, 176, 202, 0.5);
+}
+
+.pin-marker::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: rgba(0, 176, 202, 0.4);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.pin-text {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 9px;
+  font-weight: 800;
+  z-index: 2;
+  letter-spacing: 0.5px;
+}
+
+/* Posiciones de los pines en el mapa */
+.pin-dh  { top: 40%; left: 40%; }
+.pin-oca { top: 49%; left: 49%; }
+.pin-dhe { top: 40%; left: 58%; }
+
+/* =============================================
+   POPUPS
+   ============================================= */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 8, 24, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+/* Mostrar popups con checkbox hack */
+#popup-dh:checked ~ .main ~ .popup-dh-overlay,
+#popup-oca:checked ~ .main ~ .popup-oca-overlay,
+#popup-dhe:checked ~ .main ~ .popup-dhe-overlay,
+#popup-talento:checked ~ .main ~ .popup-talento-overlay,
+#popup-educacion:checked ~ .main ~ .popup-educacion-overlay,
+#popup-calidad:checked ~ .main ~ .popup-calidad-overlay,
+#popup-gestion:checked ~ .main ~ .popup-gestion-overlay {
+  opacity: 1;
+  pointer-events: all;
+}
+#popup-semanal:checked ~ .main ~ .popup-semanal-overlay {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popup {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px 30px;
+  min-width: 360px;
+  max-width: 420px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 176, 202, 0.2);
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #00B0CA;
+}
+
+.popup-title {
+  color: #002060;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.popup-close {
+  width: 26px;
+  height: 26px;
+  background: #D50032;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.popup-close:hover {
+  background: #a80028;
+  transform: scale(1.1);
+}
+
+.popup-close span {
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* =============================================
+   BOTONES DE DASHBOARD
+   ============================================= */
+.dash-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dash-btn {
+  display: block;
+  padding: 12px 14px;
+  background: linear-gradient(135deg, #BED600 0%, #a5bb00 100%);
+  border-radius: 8px;
+  color: #002060;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dash-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(190, 214, 0, 0.45);
+}
+
+.dash-btn-icon {
+  margin-right: 6px;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.footer-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 28px;
+  background: #002060;
+  border-top: 4px solid #3D3935;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-text {
+  color: #BBBCBC;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+}
+
