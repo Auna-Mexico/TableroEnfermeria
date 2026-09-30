@@ -1,4 +1,3 @@
-
 /* =============================================
    PORTAL DASHBOARDS - AUNA ENFERMERÍA
    Dirección de Enfermería · Área Metropolitana
@@ -48,6 +47,20 @@ body {
   font-size: 11px;
   margin-top: 3px;
   letter-spacing: 0.3px;
+}
+
+/* Texto central del header (RADAR° CORE° IRIS) */
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-center .header-title {
+  color: #BED600;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 .logo {
@@ -235,10 +248,7 @@ input[type="checkbox"] {
 #popup-talento:checked ~ .main ~ .popup-talento-overlay,
 #popup-educacion:checked ~ .main ~ .popup-educacion-overlay,
 #popup-calidad:checked ~ .main ~ .popup-calidad-overlay,
-#popup-gestion:checked ~ .main ~ .popup-gestion-overlay {
-  opacity: 1;
-  pointer-events: all;
-}
+#popup-gestion:checked ~ .main ~ .popup-gestion-overlay,
 #popup-semanal:checked ~ .main ~ .popup-semanal-overlay {
   opacity: 1;
   pointer-events: all;
